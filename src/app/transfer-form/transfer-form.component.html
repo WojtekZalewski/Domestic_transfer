@@ -2,7 +2,7 @@
 <h1>Domestic transfer:</h1>
 <hr>
 <form [formGroup]="transferForm" (ngSubmit)="onSubmit()" *ngIf="!show">
-  <div [hidden]="submitted">
+  <div class="content-form" [hidden]="submitted">
     <!-- accountNumber -->
     <label for="transferForm">Account number: </label>
     <br>
@@ -34,7 +34,9 @@
     <input type="text" [formControl]="transferForm.get('transferSender')" formControlName="transferSender">
     <div class="error">Wypełnij pole</div>
     <!-- submit button -->
-    <button type="submit">Send</button>
-
+    <div class="sbt_btn_box">
+      <button type="submit">Send</button>
+    </div>
   </div>
 </form>
+<hr><hr><hr>
