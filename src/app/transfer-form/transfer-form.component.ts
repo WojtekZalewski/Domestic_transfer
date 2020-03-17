@@ -55,6 +55,10 @@ export class TransferFormComponent implements OnInit {
     });
   }
   onSubmit() {
-
+    this.submitted = !this.submitted;
+  }
+  backForm() {
+    this.submitted = !this.submitted;
+    this.transferForm.reset();
   }
 }

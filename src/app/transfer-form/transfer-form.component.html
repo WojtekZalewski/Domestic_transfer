@@ -1,7 +1,7 @@
 <header></header>
 <h1>Domestic transfer:</h1>
 <hr>
-<form [formGroup]="transferForm" (ngSubmit)="onSubmit()" *ngIf="!show">
+<form #form="ngForm" [formGroup]="transferForm" (ngSubmit)="onSubmit()">
   <div class="content-form" [hidden]="submitted">
     <!-- accountNumber -->
     <label for="transferForm">Account number: </label>
@@ -40,3 +40,20 @@
   </div>
 </form>
 <hr><hr><hr>
+<!-- finish form container -->
+<div class="finish-form-container" *ngIf="submitted">
+  <h2>Transfer details:</h2>
+    <div class="trans-det-hdr">Account number:</div>
+    <div class="trans-det-row">{{transferForm.get('accountNumber').value}}</div>
+    <div class="trans-det-hdr">Ricipients name:</div>
+    <div class="trans-det-row">{{transferForm.get('ricipientsName').value}}</div>
+    <div class="trans-det-hdr">Ricipients address:</div>
+    <div class="trans-det-row">{{transferForm.get('ricipientsAddress').value}}</div>
+    <div class="trans-det-hdr">Transfer amount:</div>
+    <div class="trans-det-row">{{transferForm.get('transferAmount').value}}</div>
+    <div class="trans-det-hdr">Transfer title:</div>
+    <div class="trans-det-row">{{transferForm.get('transferTitle').value}}</div>
+    <div class="trans-det-hdr">Transfer sender:</div>
+    <div class="trans-det-row">{{transferForm.get('transferSender').value}}</div>
+    <button type="button" class="reset" (click)="backForm()">Back to form</button>
+</div>

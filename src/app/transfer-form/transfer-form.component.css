@@ -8,7 +8,7 @@ header {
     background-color: whitesmoke;
 }
 
-h1 {
+h1, h2 {
     font-size: 0.6rem;
     margin: 15px auto;
     text-align: center;
@@ -20,7 +20,8 @@ form {
     justify-content: center;
 }
 
-.content-form{
+.content-form,
+.finish-form-container{
     width: 55%;
 }
 
@@ -28,7 +29,7 @@ label {
     margin: 15px auto 0px 0px;
 }
 input {
-    margin: 5px auto 0px auto;
+    margin: 5px auto 15px auto;
     width: 100%;
 }
 
@@ -38,7 +39,7 @@ input {
     background-color: red;
     color: white;
     line-height: 25px;
-    margin: 0px auto 15px auto;
+    margin: -15px auto 15px auto;
     font-size: 0.35rem;
     padding: 0px 0px 0px 5px;
 
@@ -49,7 +50,8 @@ input {
     justify-content: flex-end;
 }
 
-button[type="submit"] {
+button[type="submit"],
+button[type="button"] {
     width: 20%;
     height: 30px;
     background-color: whitesmoke;
@@ -57,3 +59,19 @@ button[type="submit"] {
     margin: 15px 0px auto auto ;
 }
 
+h2 {
+    background-color: limegreen;
+    width: 100%;
+    margin: 5px auto;
+}
+
+.finish-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+
+.trans-det-hdr {
+    margin: 15px auto auto auto;
+}
