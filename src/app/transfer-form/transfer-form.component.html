@@ -1,23 +1,23 @@
 <header></header>
 <h1>Domestic transfer:</h1>
 <hr>
-<form #form="ngForm" [formGroup]="transferForm" (ngSubmit)="onSubmit()">
+<form #form="ngForm" [formGroup]="transferForm" (ngSubmit)="onSubmit()" *ngIf="!show">
   <div class="content-form" [hidden]="submitted">
     <!-- accountNumber -->
     <label for="transferForm">Account number: </label>
     <br>
     <input type="text" [formControl]="transferForm.get('accountNumber')" formControlName="accountNumber">
-    <div class="error" *ngIf="transferForm.get('accountNumber').hasError('required') || transferForm.get('accountNumber').hasError('minlength')">Numer konta musi mięć 26 cyfr</div>
+    <div class="error" *ngIf="transferForm.get('accountNumber').hasError('required') || transferForm.get('accountNumber').hasError('minlength') || transferForm.get('accountNumber').hasError('maxlength') || transferForm.get('accountNumber').hasError('onlyDigits')">Podaj numer konta składający się z 26 cyfr</div>
     <!-- ricipientsName -->
     <label for="ricipientsName">Recipients name: </label>
     <br>
     <input type="text" [formControl]="transferForm.get('ricipientsName')" formControlName="ricipientsName">
-    <div class="error" *ngIf="transferForm.get('ricipientsName').hasError('required') || transferForm.get('ricipientsName').hasError(minlength)">Wypełnij pole</div>
+    <div class="error" *ngIf="transferForm.get('ricipientsName').hasError('required') || transferForm.get('ricipientsName').hasError('minlength') || transferForm.get('ricipientsName').hasError('onlyLetters')">Wypełnij pole (zacznij od liter)</div>
     <!-- ricipientsAddress -->
     <label for="ricipientsAddress">Ricipient Address:</label>
     <br>
     <input type="text" [formControl]="transferForm.get('ricipientsAddress')" formsControlName="ricipientsAddress">
-    <div class="error" *ngIf="transferForm.get('ricipientsAddress').hasError('required') || transferForm.get('ricipientsAddress').hasError(minlength)">Podaj adres odbiorcy</div>
+    <div class="error" *ngIf="transferForm.get('ricipientsAddress').hasError('required') || transferForm.get('ricipientsAddress').hasError(minlength)">Podaj adres odbiorcy (minimum 5 znaków)</div>
     <!-- transferAmount -->
     <label for="transferAmount">Transfer amount:</label>
     <br>
@@ -27,7 +27,7 @@
     <label for="transferTitle">Transfer title:</label>
     <br>
     <input type="text" [formControl]="transferForm.get('transferTitle')" formControlName="transferTitle">
-    <div class="error" *ngIf="transferForm.get('transferTitle').hasError('required') || transferForm.get('transferTitle').hasError(minlength)">Podaj tytuł przelewu</div>
+    <div class="error" *ngIf="transferForm.get('transferTitle').hasError('required') || transferForm.get('transferTitle').hasError(minlength) || transferForm.get('transferTitle').hasError('wordsLimit')">Podaj tytuł przelewu (nie więcej niz 10 słów)</div>
     <!-- transferSender -->
     <label for="transferSender">Transfer Sender:</label>
     <br>
@@ -35,7 +35,7 @@
     <div class="error" *ngIf="transferForm.get('transferSender').hasError('required') || transferForm.get('transferSender').hasError(minlength)">Wypełnij pole</div>
     <!-- submit button -->
     <div class="sbt_btn_box">
-      <button type="submit">Send</button>
+      <button type="submit" [disabled]="transferForm.invalid">Send</button>
     </div>
   </div>
 </form>
@@ -55,5 +55,5 @@
     <div class="trans-det-row">{{transferForm.get('transferTitle').value}}</div>
     <div class="trans-det-hdr">Transfer sender:</div>
     <div class="trans-det-row">{{transferForm.get('transferSender').value}}</div>
-    <button type="button" class="reset" (click)="backForm()">Back to form</button>
+    <button type="button" (click)="backForm()">Back to form</button>
 </div>

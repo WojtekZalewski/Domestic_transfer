@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { CustomValidation } from './../custom-validation';
 
 
 @Component({
@@ -19,13 +20,16 @@ export class TransferFormComponent implements OnInit {
       accountNumber: new FormControl('', { 
         validators: [ 
           Validators.required, 
-          Validators.minLength(2),
+          Validators.minLength(26),
+          Validators.maxLength(26),
+          CustomValidation.onlyDigits
         ]
       }),
       ricipientsName: new FormControl('', { 
         validators: [
           Validators.required, 
-          Validators.minLength(2)
+          Validators.minLength(3),
+          CustomValidation.onlyLetters
         ]
       }),
       ricipientsAddress: new FormControl('', {
@@ -44,6 +48,7 @@ export class TransferFormComponent implements OnInit {
         validators: [
           Validators.required,
           Validators.minLength(2),
+          CustomValidation.wordsLimit(10)
         ]
       }),
       transferSender: new FormControl('', {
