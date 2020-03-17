@@ -1,8 +1,40 @@
 <header></header>
 <h1>Domestic transfer:</h1>
 <hr>
-<form #transferForm [gromGoup]="transferForm" (ngSubmit)="onSubmit()" *ngIf="!show">
+<form [formGroup]="transferForm" (ngSubmit)="onSubmit()" *ngIf="!show">
   <div [hidden]="submitted">
-    
+    <!-- accountNumber -->
+    <label for="transferForm">Account number: </label>
+    <br>
+    <input type="text" [formControl]="transferForm.get('accountNumber')" formControlName="accountNumber">
+    <div class="error">Numer konta musi mięć 26 cyfr</div>
+    <!-- ricipientsName -->
+    <label for="ricipientsName">Recipients name: </label>
+    <br>
+    <input type="text" [formControl]="transferForm.get('ricipientsName')" formControlName="ricipientsName">
+    <div class="error">Wypełnij pole</div>
+    <!-- ricipientsAddress -->
+    <label for="ricipientsAddress">Ricipient Address:</label>
+    <br>
+    <input type="text" [formControl]="transferForm.get('ricipientsAddress')" formsControlName="ricipientsAddress">
+    <div class="error">Podaj adres odbiorcy</div>
+    <!-- transferAmount -->
+    <label for="transferAmount">Transfer amount:</label>
+    <br>
+    <input type="text" [formControl]="transferForm.get('transferAmount')" formControlName="transferAmount">
+    <div class="error">Podaj kwotę przelewu</div>
+    <!-- transferTitle -->
+    <label for="transferTitle">Transfer title:</label>
+    <br>
+    <input type="text" [formControl]="transferForm.get('transferTitle')" formControlName="transferTitle">
+    <div class="error">Podaj tytuł przelewu</div>
+    <!-- transferSender -->
+    <label for="transferSender">Transfer Sender:</label>
+    <br>
+    <input type="text" [formControl]="transferForm.get('transferSender')" formControlName="transferSender">
+    <div class="error">Wypełnij pole</div>
+    <!-- submit button -->
+    <button type="submit">Send</button>
+
   </div>
 </form>

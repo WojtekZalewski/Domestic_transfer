@@ -52,4 +52,7 @@ export class TransferFormComponent implements OnInit {
       })
     });
   }
+  onSubmit() {
+    
+  }
 }
