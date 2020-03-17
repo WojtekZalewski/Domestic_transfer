@@ -7,32 +7,32 @@
     <label for="transferForm">Account number: </label>
     <br>
     <input type="text" [formControl]="transferForm.get('accountNumber')" formControlName="accountNumber">
-    <div class="error">Numer konta musi mięć 26 cyfr</div>
+    <div class="error" *ngIf="transferForm.get('accountNumber').hasError('required') || transferForm.get('accountNumber').hasError('minlength')">Numer konta musi mięć 26 cyfr</div>
     <!-- ricipientsName -->
     <label for="ricipientsName">Recipients name: </label>
     <br>
     <input type="text" [formControl]="transferForm.get('ricipientsName')" formControlName="ricipientsName">
-    <div class="error">Wypełnij pole</div>
+    <div class="error" *ngIf="transferForm.get('ricipientsName').hasError('required') || transferForm.get('ricipientsName').hasError(minlength)">Wypełnij pole</div>
     <!-- ricipientsAddress -->
     <label for="ricipientsAddress">Ricipient Address:</label>
     <br>
     <input type="text" [formControl]="transferForm.get('ricipientsAddress')" formsControlName="ricipientsAddress">
-    <div class="error">Podaj adres odbiorcy</div>
+    <div class="error" *ngIf="transferForm.get('ricipientsAddress').hasError('required') || transferForm.get('ricipientsAddress').hasError(minlength)">Podaj adres odbiorcy</div>
     <!-- transferAmount -->
     <label for="transferAmount">Transfer amount:</label>
     <br>
     <input type="text" [formControl]="transferForm.get('transferAmount')" formControlName="transferAmount">
-    <div class="error">Podaj kwotę przelewu</div>
+    <div class="error" *ngIf="transferForm.get('transferAmount').hasError('required') || transferForm.get('transferAmount').hasError(minlength)">Podaj kwotę przelewu</div>
     <!-- transferTitle -->
     <label for="transferTitle">Transfer title:</label>
     <br>
     <input type="text" [formControl]="transferForm.get('transferTitle')" formControlName="transferTitle">
-    <div class="error">Podaj tytuł przelewu</div>
+    <div class="error" *ngIf="transferForm.get('transferTitle').hasError('required') || transferForm.get('transferTitle').hasError(minlength)">Podaj tytuł przelewu</div>
     <!-- transferSender -->
     <label for="transferSender">Transfer Sender:</label>
     <br>
     <input type="text" [formControl]="transferForm.get('transferSender')" formControlName="transferSender">
-    <div class="error">Wypełnij pole</div>
+    <div class="error" *ngIf="transferForm.get('transferSender').hasError('required') || transferForm.get('transferSender').hasError(minlength)">Wypełnij pole</div>
     <!-- submit button -->
     <div class="sbt_btn_box">
       <button type="submit">Send</button>

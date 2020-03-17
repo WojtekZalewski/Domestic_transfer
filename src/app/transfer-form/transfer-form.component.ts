@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+
 @Component({
   selector: 'app-transfer-form',
   templateUrl: './transfer-form.component.html',
@@ -17,7 +19,7 @@ export class TransferFormComponent implements OnInit {
       accountNumber: new FormControl('', { 
         validators: [ 
           Validators.required, 
-          Validators.minLength(2)
+          Validators.minLength(2),
         ]
       }),
       ricipientsName: new FormControl('', { 
@@ -35,13 +37,13 @@ export class TransferFormComponent implements OnInit {
       transferAmount: new FormControl('', { 
         validators: [
           Validators.required,
-          Validators.min(1)
+          Validators.minLength(1)
         ]
       }),
       transferTitle: new FormControl('', {
         validators: [
           Validators.required,
-          Validators.minLength(2)
+          Validators.minLength(2),
         ]
       }),
       transferSender: new FormControl('', {
@@ -53,6 +55,6 @@ export class TransferFormComponent implements OnInit {
     });
   }
   onSubmit() {
-    
+
   }
 }
