@@ -41,7 +41,8 @@ export class TransferFormComponent implements OnInit {
       transferAmount: new FormControl('', { 
         validators: [
           Validators.required,
-          Validators.minLength(1)
+          Validators.minLength(1),
+          CustomValidation.onlyDigits
         ]
       }),
       transferTitle: new FormControl('', {
