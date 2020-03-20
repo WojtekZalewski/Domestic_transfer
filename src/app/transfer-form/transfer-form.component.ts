@@ -48,8 +48,7 @@ export class TransferFormComponent implements OnInit {
       transferTitle: new FormControl('', {
         validators: [
           Validators.required,
-          Validators.minLength(2),
-          CustomValidation.wordsLimit(10)
+          Validators.minLength(2)
         ]
       }),
       transferSender: new FormControl('', {

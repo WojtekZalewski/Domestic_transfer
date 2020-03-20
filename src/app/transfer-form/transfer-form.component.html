@@ -27,7 +27,7 @@
     <label for="transferTitle">Transfer title:</label>
     <br>
     <input type="text" [formControl]="transferForm.get('transferTitle')" formControlName="transferTitle">
-    <div class="error" *ngIf="transferForm.get('transferTitle').hasError('required') || transferForm.get('transferTitle').hasError('minlength') || transferForm.get('transferTitle').hasError('wordsLimit')">Podaj tytuł przelewu (nie więcej niz 10 słów)</div>
+    <div class="error" *ngIf="transferForm.get('transferTitle').hasError('required') || transferForm.get('transferTitle').hasError('minlength')">Podaj tytuł przelewu</div>
     <!-- transferSender -->
     <label for="transferSender">Transfer Sender:</label>
     <br>
@@ -52,7 +52,7 @@
     <div class="trans-det-hdr">Transfer amount:</div>
     <div class="trans-det-row">{{transferForm.get('transferAmount').value}}</div>
     <div class="trans-det-hdr">Transfer title:</div>
-    <div class="trans-det-row">{{transferForm.get('transferTitle').value}}</div>
+    <!-- <div class="trans-det-row">{{transferForm.get('transferTitle').value}}</div> -->
     <div class="trans-det-hdr">Transfer sender:</div>
     <div class="trans-det-row">{{transferForm.get('transferSender').value}}</div>
     <button type="button" (click)="backForm()">Back to form</button>
