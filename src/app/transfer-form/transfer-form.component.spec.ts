@@ -1,16 +1,14 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { TransferFormComponent } from "./transfer-form.component";
 
-import { TransferFormComponent } from './transfer-form.component';
-
-describe('TransferFormComponent', () => {
+describe("TransferFormComponent", () => {
   let component: TransferFormComponent;
   let fixture: ComponentFixture<TransferFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TransferFormComponent ]
-    })
-    .compileComponents();
+      declarations: [TransferFormComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +17,7 @@ describe('TransferFormComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
